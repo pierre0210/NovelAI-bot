@@ -1,7 +1,7 @@
-import { SlashCommandBuilder, CommandInteraction } from "discord.js";
+import { SlashCommandBuilder, CommandInteraction, SlashCommandSubcommandsOnlyBuilder } from "discord.js";
 import { ClientExtension } from "./clientExtension";
 
 export interface Command {
-	data: SlashCommandBuilder;
+	data: Omit<SlashCommandBuilder, "addSubcommandGroup" | "addSubcommand">| SlashCommandSubcommandsOnlyBuilder;
 	run: (client: ClientExtension, interaction: CommandInteraction) => Promise<void>;
 }
