@@ -1,0 +1,21 @@
+{
+  "name": "novelai-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./prod/bot.js",
+  "scripts": {
+    "build": "tsc",
+	"start": "node ./prod/bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pierre",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.8.4",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3"
+  }
+}
