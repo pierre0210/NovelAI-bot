@@ -5,7 +5,7 @@
   "main": "./prod/bot.js",
   "scripts": {
     "build": "tsc",
-	"start": "node ./prod/bot.js",
+    "start": "node ./prod/bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Pierre",
@@ -15,6 +15,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "axios": "^1.1.2",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3"
   }
