@@ -1,5 +1,6 @@
 import { Interaction } from "discord.js";
 import { ClientExtension } from "../interfaces/clientExtension";
+import { processInteraction } from "../modals/generate";
 
 export const interactionCreate = async (interaction: Interaction, client: ClientExtension) => {
 	if(interaction.isCommand()) {
@@ -9,6 +10,11 @@ export const interactionCreate = async (interaction: Interaction, client: Client
 		}
 		else {
 			await command.run(client, interaction);
+		}
+	}
+	else if(interaction.isModalSubmit()) {
+		if(interaction.customId == "generate") {
+			processInteraction(interaction, client);
 		}
 	}
 }
