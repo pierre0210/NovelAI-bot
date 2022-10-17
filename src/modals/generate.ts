@@ -8,13 +8,13 @@ async function processInteraction(interaction: ModalSubmitInteraction, client: C
 	let scale: number = 11;
 	let steps: number = 28;
 	//let ucPreset: number = 0;
-	const sampler: string = 'k_euler_ancestral';
-	const model: string = 'NAI Diffusion Anime (Curated)';
+	const sampler: string = 'ddim';
 	
 	const ai = new novelAI();
     const input = interaction.fields.getTextInputValue('include');
 	const res = interaction.fields.getTextInputValue('resolution') ? interaction.fields.getTextInputValue('resolution') : 'Portrait (Normal): 512x768';
-    const uc = interaction.fields.getTextInputValue('exclude');
+    const model = interaction.fields.getTextInputValue('model') ? interaction.fields.getTextInputValue('model') : 'NAI Diffusion Anime (Curated)';
+	const uc = interaction.fields.getTextInputValue('exclude');
 	const paths = await ai.generateImage(input, n_samples, model, res, scale, sampler, steps, uc);
 
 	const file = new AttachmentBuilder(paths[0]);
