@@ -1,8 +1,8 @@
 # NovelAI-bot
 
 ## Features
-Using NovelAi API, `NovelAI-bot` a discord bot that can generate images according to given tags, resolution, and model.
-
+Using NovelAi API, `NovelAI-bot` a discord bot that can generate images according to given tags, resolution, and model.\
+Currently supports `Traditional Chinese(Taiwan)`, `English` and `日本語`.
 ## Setup
 ### Using Node.js v18.7.0
 ```
@@ -14,6 +14,7 @@ npm start
 ```
 If you want to register the commands as global, just change the boolean of "IsGlobal" into true.
 If you want to register them as guild commands, don't forget to fill in your guild ID.
+Configuate the "Language" part by filling in "en" or "jp", the default language is "zhtw".
 ```
 ## Usage
 ```
@@ -27,7 +28,6 @@ Fill the included and excluded tags in the first two rows(required). You can als
 
 ## Future Features
 - **SQLite** : We will add a database to monitor the usage of each guild member.
-- **Language Option** : The default language is `Traditional Chinese(Taiwan)`. We will add `English` and `日本語` options soon.
 
 ## Credits
 - **Pierre** - Main developer

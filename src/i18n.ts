@@ -1,6 +1,7 @@
 import path from "path";
 import zhtw from "./locals/zh-tw.json";
 import en from "./locals/en.json";
+import jp from "./locals/jp.json";
 
 const configFilePath = path.join(process.cwd(), "prod", "config.json");
 
@@ -13,6 +14,8 @@ class I18n {
 			case "en":
 				this.local = en;
 				break;
+			case "jp":
+				this.local = jp;
 			default:
 				this.local = zhtw;
 				break;
