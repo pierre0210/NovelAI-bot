@@ -1,26 +1,28 @@
 import { SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle, SelectMenuBuilder, ModalActionRowComponentBuilder } from "discord.js";
 import { Command } from "../interfaces/command";
+import { I18n } from "../i18n";
+const i18n = new I18n();
 
 export const generate: Command = {
 	data: new SlashCommandBuilder()
 		.setName("generate")
-		.setDescription("generate pictures"),
+		.setDescription(i18n.translate("產生圖片")),
 	
 	run: async (client, interaction) => {
         const modal = new ModalBuilder()
             .setCustomId('generate')
-            .setTitle('生成圖片');
+            .setTitle(i18n.translate('產生圖片'));
 
 		
 
 		const includedTags = new TextInputBuilder()
-			.setCustomId('include').setLabel('輸入標籤').setStyle(TextInputStyle.Paragraph).setRequired(true);
+			.setCustomId('include').setLabel(i18n.translate('輸入標籤')).setStyle(TextInputStyle.Paragraph).setRequired(true);
 		const excludedTags = new TextInputBuilder()
-			.setCustomId('exclude').setLabel('避開標籤').setStyle(TextInputStyle.Paragraph).setRequired(true);
+			.setCustomId('exclude').setLabel(i18n.translate('避開標籤')).setStyle(TextInputStyle.Paragraph).setRequired(true);
 		const resolutionInput = new TextInputBuilder()
-			.setCustomId('resolution').setLabel('畫質與形狀/比例').setStyle(TextInputStyle.Paragraph).setPlaceholder('Portrait (Normal): 512x768').setRequired(false);
+			.setCustomId('resolution').setLabel(i18n.translate('畫質與形狀/比例')).setStyle(TextInputStyle.Paragraph).setPlaceholder('Portrait (Normal): 512x768').setRequired(false);
 		const modelType = new TextInputBuilder()
-			.setCustomId('model').setLabel('演算模式').setStyle(TextInputStyle.Paragraph).setPlaceholder('NAI Diffusion Anime (Curated)').setRequired(false);
+			.setCustomId('model').setLabel(i18n.translate('演算模式')).setStyle(TextInputStyle.Paragraph).setPlaceholder('NAI Diffusion Anime (Curated)').setRequired(false);
 		/*const resolutionInput = new SelectMenuBuilder().setCustomId('resolution').setPlaceholder("Portrait (Normal): 512x768").addOptions(
 			{
 				label: "Portrait (Normal): 512x768",

@@ -1,0 +1,12 @@
+{
+	"產生圖片": "Generate image",
+	"輸入標籤": "Prompt",
+	"避開標籤": "Negative prompt",
+	"畫質與形狀/比例": "Resolution",
+	"演算模式": "Model",
+
+	"取得延遲": "Get latency",
+	"Websocket 延遲": "Websocket latency",
+
+	"指令不存在": "Command not found"
+}

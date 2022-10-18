@@ -6,7 +6,8 @@ import { Command } from "../interfaces/command";
 
 const exampleConfig = {
 	DevGuildId: "",
-	IsGlobal: false
+	IsGlobal: false,
+	Language: "zh-tw"
 }
 
 export async function ready(client: ClientExtension) {
