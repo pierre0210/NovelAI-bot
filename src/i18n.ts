@@ -16,6 +16,7 @@ class I18n {
 				break;
 			case "jp":
 				this.local = jp;
+				break;
 			default:
 				this.local = zhtw;
 				break;
