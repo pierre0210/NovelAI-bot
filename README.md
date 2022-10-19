@@ -14,7 +14,7 @@ npm start
 ```
 If you want to register the commands as global, just change the boolean of "IsGlobal" into true.
 If you want to register them as guild commands, don't forget to fill in your guild ID.
-Configuate the "Language" part by filling in "en" or "jp", the default language is "zhtw".
+Configure the "Language" part by filling in "en" or "jp", the default language is "zhtw".
 ```
 ## Usage
 ```
@@ -30,5 +30,5 @@ Fill the included and excluded tags in the first two rows(required). You can als
 - **SQLite** : We will add a database to monitor the usage of each guild member.
 
 ## Credits
-- **Pierre** - Main developer
-- **蒼アオ** - Co-developer
+- **Pierre** - Main developer. API request & file structure.
+- **蒼アオ** - Co-developer. Discord commands and modal, Japanese translation.
