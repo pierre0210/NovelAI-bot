@@ -33,16 +33,16 @@ class novelAI {
 			baseURL: this.url,
 			url: "/ai/generate-image",
 			headers: {
-                "Content-Type": "application/json",
-                "authorization": process.env.NOVELAI_TOKEN,
-                "authority": this.url,
-                "accept": "/",
-                "content-type": "application/json",
-                "origin": "https://novelai.net/",
-                "referer": "https://novelai.net/"
-            },
+				"Content-Type": "application/json",
+				"authorization": process.env.NOVELAI_TOKEN,
+				"authority": this.url,
+				"accept": "/",
+				"content-type": "application/json",
+				"origin": "https://novelai.net/",
+				"referer": "https://novelai.net/"
+			},
 			data: {
-                "input": input,
+				"input": input,
 				"model": this.models[model],
 				"parameters": {
 					"resolution": resolution,
@@ -53,7 +53,7 @@ class novelAI {
 					"ucPreset": ucPreset,
 					"uc": uc
 				}
-            }
+			}
 		});
 
 		if(response.status == 201) {
