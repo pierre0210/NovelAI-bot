@@ -1,5 +1,9 @@
 # NovelAI-bot
 
+![](https://img.shields.io/github/issues/pierre0210/NovelAI-bot)
+![](https://img.shields.io/github/stars/pierre0210/NovelAI-bot)
+![](https://img.shields.io/github/forks/pierre0210/NovelAI-bot)
+
 ## Features
 Using NovelAi API, `NovelAI-bot` a discord bot that can generate images according to given tags, resolution, and model.\
 Currently supports `Traditional Chinese(Taiwan)`, `English` and `日本語`.
