@@ -20,6 +20,12 @@ If you want to register the commands as global, just change the boolean of "IsGl
 If you want to register them as guild commands, don't forget to fill in your guild ID.
 Configure the "Language" part by filling in "en" or "jp", the default language is "zhtw".
 ```
+### Using Docker
+Docker is also a possible way to run this bot, please make sure you have filled the `.env` file and placed it under root directory.
+```
+docker image build -t novelai-bot
+docker container run --name novelai -d novelai-bot
+```
 ## Usage
 ```
 npm start
