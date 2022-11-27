@@ -17,8 +17,13 @@ export async function ready(client: ClientExtension) {
 		console.log("config.json not found");
 		process.exit(1);
 	}
-	fs.mkdirSync(path.join(process.cwd(), "prod", "tmp"));
-	console.log("tmp folder created");
+	
+	const tempFolderPath = path.join(process.cwd(), "prod", "tmp");
+	if(!fs.existsSync(tempFolderPath)) {
+		fs.mkdirSync(path.join(process.cwd(), "prod", "tmp"));
+		console.log("tmp folder created");
+	}
+	
 	client.commands = [];
 	const config = await import(configFilePath);
 	const commandDir = path.join(process.cwd(), "prod", "commands");

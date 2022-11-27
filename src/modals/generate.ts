@@ -1,6 +1,8 @@
 import { ModalSubmitInteraction, Client, TextChannel, EmbedBuilder, AttachmentBuilder } from "discord.js";
 import { novelAI } from "../novelAI/novelAI";
 import fs from "fs";
+import { I18n } from "../i18n";
+const i18n = new I18n();
 
 async function processInteraction(interaction: ModalSubmitInteraction, client: Client) {
 	await interaction.deferUpdate();
@@ -17,17 +19,32 @@ async function processInteraction(interaction: ModalSubmitInteraction, client: C
 	const uc = interaction.fields.getTextInputValue('exclude');
 	const paths = await ai.generateImage(input, n_samples, model, res, scale, sampler, steps, uc);
 
-	const file = new AttachmentBuilder(paths[0]);
-
-    const result = new EmbedBuilder().setColor(0x176935).addFields(
-        {
-            name: '輸入標籤', value: "```\n" + input + "\n```"
-        },{
-            name: '避開標籤', value: "```\n" + uc + "\n```"
-        }
-    ).setFooter({text: interaction.user.tag});
+	const img = new AttachmentBuilder(paths[0]);
 	const channel = client.channels.cache.get(interaction.channelId as string) as TextChannel;
-	await channel.send({ embeds:[result], files: [file] });
+	let attachmentArr = [img];
+	const result = new EmbedBuilder().setColor(0x176935)
+
+	if(input.length <= 1024 - 8) {
+		result.addFields({ name: i18n.translate("輸入標籤"), value: "```\n" + input + "\n```"});
+	}
+	else {
+		const inputBuffer = Buffer.from(input, "utf-8");
+		const inputTxt = new AttachmentBuilder(inputBuffer, { name: "input.txt" });
+		attachmentArr.push(inputTxt);
+	}
+
+	if(uc.length <= 1024 - 8) {
+		result.addFields({ name: i18n.translate("避開標籤"), value: "```\n" + uc + "\n```"});
+	}
+	else {
+		const ucBuffer = Buffer.from(uc, "utf-8");
+		const ucTxt = new AttachmentBuilder(ucBuffer, { name: "uc.txt" });
+		attachmentArr.push(ucTxt);
+	}
+
+	result.setFooter({text: interaction.user.tag});
+	await channel.send({ embeds: [result], files: attachmentArr });
+    
     //await interaction.deferReply();
     //await interaction.followUp({ embeds:[result], files: [file] });
 	fs.unlinkSync(paths[0]);

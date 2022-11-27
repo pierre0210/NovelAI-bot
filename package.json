@@ -5,7 +5,7 @@
   "main": "./prod/bot.js",
   "scripts": {
     "build": "tsc",
-    "start": "node ./prod/bot.js",
+    "start": "node --no-warnings ./prod/bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Pierre",
