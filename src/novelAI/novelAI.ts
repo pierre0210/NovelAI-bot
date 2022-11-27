@@ -63,7 +63,7 @@ class novelAI {
 			for(let i=1; i<=n_samples; i++) {
 				const imageSplit = image.split(`\nevent: newImage\nid: ${i+1}\ndata:`);
 				const buffer = Buffer.from(imageSplit[0], "base64");
-				const filename = path.join(process.cwd(), "prod", `${Date.now()}-${i}.png`);
+				const filename = path.join(process.cwd(), "prod", "tmp", `${Date.now()}-${i}.png`);
 				imageArr.push(filename);
 				fs.writeFileSync(filename, buffer);
 				image = imageSplit.length == 2 ? imageSplit[1] : "";
@@ -71,7 +71,7 @@ class novelAI {
 			return imageArr;
 		}
 		else {
-			console.log("Error");
+			console.log(`Error! status code: ${response.status}`);
 			return [];
 		}
 	}
