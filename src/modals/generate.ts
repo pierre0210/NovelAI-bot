@@ -2,9 +2,9 @@ import { ModalSubmitInteraction, Client, TextChannel, EmbedBuilder, AttachmentBu
 import { novelAI } from "../novelAI/novelAI";
 import fs from "fs";
 import { I18n } from "../i18n";
-const i18n = new I18n();
 
 async function processInteraction(interaction: ModalSubmitInteraction, client: Client) {
+	const i18n = new I18n();
 	await interaction.deferUpdate();
     let n_samples: number = 1;
 	let scale: number = 11;

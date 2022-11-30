@@ -2,9 +2,9 @@ import { Interaction } from "discord.js";
 import { ClientExtension } from "../interfaces/clientExtension";
 import { processInteraction } from "../modals/generate";
 import { I18n } from "../i18n";
-const i18n = new I18n();
 
 export const interactionCreate = async (interaction: Interaction, client: ClientExtension) => {
+	const i18n = new I18n();
 	if(interaction.isCommand()) {
 		const command = client.commands.find((cmd) => cmd.data.name === interaction.commandName);
 		if(!command) {
