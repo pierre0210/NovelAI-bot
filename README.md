@@ -15,11 +15,10 @@ npm run build
 npm start
 ```
 ### Fill up `.env` and `config.json` under `prod` folder
-```
-If you want to register the commands as global, just change the boolean of "IsGlobal" into true.
-If you want to register them as guild commands, don't forget to fill in your guild ID.
+If you want to register the commands as global, just change the boolean of "IsGlobal" into true.\
+If you want to register them as guild commands, don't forget to fill in your guild ID.\
 Configure the "Language" part by filling in "en" or "jp", the default language is "zhtw".
-```
+
 ### Using Docker
 Docker is also a possible way to run this bot, please make sure you have filled the `.env` file and placed it under root directory.
 ```
@@ -34,7 +33,8 @@ npm start
 - **/ping** : get websocket latency
 - **/generate** : generate image\
 <img src='https://media.discordapp.net/attachments/1029763983978278993/1031576804483420170/unknown.png'>\
-Fill the included and excluded tags in the first two rows(required). You can also customize resolution and model(not necessary, the defaults are shown on the placeholders).
+Fill the included and excluded tags in the first two rows(required). You can also customize resolution and model(not necessary, the defaults are shown on the placeholders)\
+model options: `NAI Diffusion Anime (Curated)`, `NAI Diffusion Anime (Full)`, `NAI Diffusion Furry (Beta)`
 
 ## Future Features
 - **SQLite** : We will add a database to monitor the usage of each guild member.
