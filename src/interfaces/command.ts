@@ -2,6 +2,6 @@ import { SlashCommandBuilder, CommandInteraction, SlashCommandSubcommandsOnlyBui
 import { ClientExtension } from "./clientExtension";
 
 export interface Command {
-	data: Omit<SlashCommandBuilder, "addSubcommandGroup" | "addSubcommand">| SlashCommandSubcommandsOnlyBuilder;
-	run: (client: ClientExtension, interaction: CommandInteraction) => Promise<void>;
+  data: Omit<SlashCommandBuilder, "addSubcommandGroup" | "addSubcommand">| SlashCommandSubcommandsOnlyBuilder;
+  run: (client: ClientExtension, interaction: CommandInteraction) => Promise<void>;
 }
