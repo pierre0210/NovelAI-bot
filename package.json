@@ -6,12 +6,15 @@
   "scripts": {
     "build": "tsc",
     "start": "node --no-warnings ./prod/bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --ext .ts"
   },
   "author": "Pierre",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.8.4",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
+    "eslint": "^8.29.0",
     "typescript": "^4.8.4"
   },
   "dependencies": {

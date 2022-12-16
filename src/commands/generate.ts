@@ -10,17 +10,17 @@ export const generate: Command = {
   
   run: async (client, interaction) => {
     const modal = new ModalBuilder()
-      .setCustomId('generate')
-      .setTitle(i18n.translate('產生圖片'));
+      .setCustomId("generate")
+      .setTitle(i18n.translate("產生圖片"));
 
     const includedTags = new TextInputBuilder()
-      .setCustomId('include').setLabel(i18n.translate('輸入標籤')).setStyle(TextInputStyle.Paragraph).setRequired(true);
+      .setCustomId("include").setLabel(i18n.translate("輸入標籤")).setStyle(TextInputStyle.Paragraph).setRequired(true);
     const excludedTags = new TextInputBuilder()
-      .setCustomId('exclude').setLabel(i18n.translate('避開標籤')).setStyle(TextInputStyle.Paragraph).setRequired(true);
+      .setCustomId("exclude").setLabel(i18n.translate("避開標籤")).setStyle(TextInputStyle.Paragraph).setRequired(true);
     const resolutionInput = new TextInputBuilder()
-      .setCustomId('resolution').setLabel(i18n.translate('畫質與形狀/比例')).setStyle(TextInputStyle.Paragraph).setPlaceholder('Portrait (Normal): 512x768').setRequired(false);
+      .setCustomId("resolution").setLabel(i18n.translate("畫質與形狀/比例")).setStyle(TextInputStyle.Paragraph).setPlaceholder("Portrait (Normal): 512x768").setRequired(false);
     const modelType = new TextInputBuilder()
-      .setCustomId('model').setLabel(i18n.translate('演算模式')).setStyle(TextInputStyle.Paragraph).setPlaceholder('NAI Diffusion Anime (Curated)').setRequired(false);
+      .setCustomId("model").setLabel(i18n.translate("演算模式")).setStyle(TextInputStyle.Paragraph).setPlaceholder("NAI Diffusion Anime (Curated)").setRequired(false);
     /*const resolutionInput = new SelectMenuBuilder().setCustomId('resolution').setPlaceholder("Portrait (Normal): 512x768").addOptions(
       {
         label: "Portrait (Normal): 512x768",
@@ -57,5 +57,5 @@ export const generate: Command = {
     modal.addComponents(actionRow1, actionRow2, actionRow3, actionRow4);
     
     await interaction.showModal(modal);
-  }
-}
+  },
+};

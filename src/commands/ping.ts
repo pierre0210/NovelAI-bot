@@ -11,5 +11,5 @@ export const ping: Command = {
     const pingEmbed = new EmbedBuilder().setColor(0x176935)
       .setDescription("```\n"+`${i18n.translate("Websocket 延遲")}: ${client.ws.ping} ms`+"\n```");
     await interaction.reply({ embeds: [pingEmbed] });
-  }
-}
+  },
+};

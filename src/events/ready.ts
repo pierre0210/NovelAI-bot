@@ -7,8 +7,8 @@ import { Command } from "../interfaces/command";
 const exampleConfig = {
   DevGuildId: "",
   IsGlobal: false,
-  Language: "zh-tw"
-}
+  Language: "zh-tw",
+};
 
 export async function ready(client: ClientExtension) {
   const configFilePath = path.join(process.cwd(), "prod", "config.json");

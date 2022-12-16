@@ -17,14 +17,14 @@ class novelAI {
       "Square (Normal): 640x640",
       "Portrait (Small): 384x640",
       "Landscape (Small): 640x384",
-      "Square (Small): 512x512"
+      "Square (Small): 512x512",
     ];
     this.models = {
       "NAI Diffusion Anime (Curated)": "safe-diffusion",
       "NAI Diffusion Anime (Full)": "nai-diffusion",
-      "NAI Diffusion Furry (Beta)": "nai-diffusion-furry"
+      "NAI Diffusion Furry (Beta)": "nai-diffusion-furry",
     };
-    this.samplers = ['k_euler_ancestral', 'k_euler', 'k_lms', 'plms', 'ddim'];
+    this.samplers = ["k_euler_ancestral", "k_euler", "k_lms", "plms", "ddim"];
   }
 
   public async generateImage(input: string, n_samples: number, model: string, resolution: string, scale: number, sampler: string, steps: number, uc: string, ucPreset: number = 0): Promise<string[]> {
@@ -39,7 +39,7 @@ class novelAI {
         "accept": "/",
         "content-type": "application/json",
         "origin": "https://novelai.net/",
-        "referer": "https://novelai.net/"
+        "referer": "https://novelai.net/",
       },
       data: {
         "input": input,
@@ -51,9 +51,9 @@ class novelAI {
           "steps": steps,
           "n_samples": n_samples,
           "ucPreset": ucPreset,
-          "uc": uc
-        }
-      }
+          "uc": uc,
+        },
+      },
     });
 
     if(response.status == 201) {

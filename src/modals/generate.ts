@@ -10,19 +10,19 @@ async function processInteraction(interaction: ModalSubmitInteraction, client: C
   let scale: number = 11;
   let steps: number = 28;
   //let ucPreset: number = 0;
-  const sampler: string = 'ddim';
+  const sampler: string = "ddim";
   
   const ai = new novelAI();
-  const input = interaction.fields.getTextInputValue('include');
-  const res = interaction.fields.getTextInputValue('resolution') ? interaction.fields.getTextInputValue('resolution') : 'Portrait (Normal): 512x768';
-  const model = interaction.fields.getTextInputValue('model') ? interaction.fields.getTextInputValue('model') : 'NAI Diffusion Anime (Curated)';
-  const uc = interaction.fields.getTextInputValue('exclude');
+  const input = interaction.fields.getTextInputValue("include");
+  const res = interaction.fields.getTextInputValue("resolution") ? interaction.fields.getTextInputValue("resolution") : "Portrait (Normal): 512x768";
+  const model = interaction.fields.getTextInputValue("model") ? interaction.fields.getTextInputValue("model") : "NAI Diffusion Anime (Curated)";
+  const uc = interaction.fields.getTextInputValue("exclude");
   const paths = await ai.generateImage(input, n_samples, model, res, scale, sampler, steps, uc);
 
   const img = new AttachmentBuilder(paths[0]);
   const channel = client.channels.cache.get(interaction.channelId as string) as TextChannel;
   let attachmentArr = [img];
-  const result = new EmbedBuilder().setColor(0x176935)
+  const result = new EmbedBuilder().setColor(0x176935);
 
   if(input.length <= 1024 - 8) {
     result.addFields({ name: i18n.translate("輸入標籤"), value: "```\n" + input + "\n```"});

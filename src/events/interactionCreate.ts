@@ -19,4 +19,4 @@ export const interactionCreate = async (interaction: Interaction, client: Client
       processInteraction(interaction, client);
     }
   }
-}
+};
